@@ -5,9 +5,10 @@ import com.hwj.springcloud.entities.Payment;
 import com.hwj.springcloud.service.PaymentService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
-
-import javax.annotation.Resource;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @Slf4j
@@ -33,10 +34,10 @@ public class PaymentController {
     }
 
     @GetMapping("/payments/{id}")
-    public CommonResult getPaymentById(@PathVariable Long id) {
+    public CommonResult<Payment> getPaymentById(@PathVariable Long id) {
 
         Payment payment = paymentService.getPaymentById(id);
-        log.info("*****插入结果："+payment);
+        log.info("*****插入结果hhh："+payment);
 
         if(payment!=null) {
 
